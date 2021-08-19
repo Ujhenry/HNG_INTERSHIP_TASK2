@@ -1,1 +1,1 @@
-web:gunicorn RESUME_BUILDER.wsgi
+web:gunicorn App.wsgi
