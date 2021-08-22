@@ -28,7 +28,7 @@ SECRET_KEY = '@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [' https://hidden-oasis-19764.heroku.com', '127.0.0.1']
+ALLOWED_HOSTS = ['heroku_site_url', 'localhost', '127.0.0.1']
 
 
 # Application definition
