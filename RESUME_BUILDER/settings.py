@@ -28,7 +28,7 @@ SECRET_KEY = '@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['heroku_site_url', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['hidden-oasis-19764.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -127,7 +127,7 @@ STATICFILE_DIRS =[
 
 STATIC_ROOT=os.path.join(BASE_DIR, 'static')
 
-STATICFILES_STORAGE = 'whitenoise.django.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 prod_db  =  dj_database_url.config(conn_max_age=500)
