@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+
+import os 
 import django_heroku
-import dj_database_url
 
 from pathlib import Path
 
@@ -25,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -71,28 +72,16 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'RESUME_BUILDER.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '<database_name>',
-        'USER': '<user_name>',
-        'PASSWORD': '<password>',
-        'HOST': 'localhost',
-        'PORT': '',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
-WHITENOISE_USE_FINDERS = True
-
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -131,6 +120,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT=os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 STATICFILES_STORAGE ="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
