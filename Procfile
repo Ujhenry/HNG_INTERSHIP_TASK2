@@ -1,1 +1,1 @@
-web:gunicorn resume_builder.wsgi
+web:gunicorn RESUMEE .wsgi
